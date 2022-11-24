@@ -1,0 +1,89 @@
+<%- include('templates/header'); -%>
+<div id="mensagem"></div>
+<body style="background-color: #f8f8f8 ;">
+<div class="container-fluid">
+  <div class="row">
+      <div class="myBackground text-center">
+          <h1 class="text-center p-3 mt-4 ">Aprenda a montar seu computador</h1>
+              <a href="/componentes"><button type="button" class="btn btn-outline-light mt-2 p-2">Conheça um pouco sobre as peças</button></a>
+              <a href="/tutorial"><button type="button" class="btn btn-outline-secondary mt-2 p-2">Tutorial de montagem</button></a>
+          <img class="rounded mx-auto d-block position-absolute bottom-0 start-50 translate-middle-x" id="gabinete" src="/images/gab.png" alt="">
+      </div>
+
+  </div>
+</div>
+<div class="container-fluid pt-5 pb-5" style="background-color: #f8f8f8 ;">
+<div class="row p-2">
+    <h1 class="text-center display-2 p-5">Configurações recomendadas</h1>
+    <div class="col-12 col-md-3 m-3 text-center mx-auto rounded" style="background-color: #fff ; box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;">
+    <h2 class="display-5 pt-1">Configuração<br>de edição</h2>
+    <div><img width="40%" class="img-fluid p-5" src="/images/monitor.png" alt="" srcset=""></div>
+    <div style="width:64%; margin-left: 18%;">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+              </svg> Boa performace para edição</li>
+            <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+              </svg> Contém SSD</li>
+            <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+              </svg> Placa de vídeo dedicada</li>
+            <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+              </svg> Refrigeração líquida</li>
+          </ul></div>
+    <button type="button" value="edicao" id="botaoAlerta" onclick="edicao(this.value)" class="btn btn-dark px-5 ms-5 me-5 mb-5 mt-4 p-2">Salvar configuração</button>
+    </div>
+    <div class="col-12 col-md-3 m-3 text-center mx-auto rounded" style="background-color: #fff  ; box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;">
+    <h2 class="display-5 pt-1">Configuração<br>gamer</h2>
+    <div><img width="40%" class="img-fluid p-5" src="/images/controle.png" alt="" srcset=""></div>
+    <div style="width:64%; margin-left: 18%;">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+              </svg> Boa performace para jogar</li>
+            <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+              </svg> Contém SSD</li>
+            <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+              </svg> Placa de vídeo dedicada</li>
+            <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+            </svg> Refrigeração líquida</li>
+          </ul>
+        </div> 
+          <button type="button" value="gamer" id="botaoAlerta1"  onclick="gamer(this.value)" class="btn btn-dark px-5 ms-5 me-5 mb-5 mt-4 p-2">Salvar configuração</button>
+    </div>
+    <div class="col-12 col-md-3 m-3 text-center mx-auto rounded" style="background-color: #fff ; box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;">
+    <h2 class="display-5 pt-1">Configuração<br>de estudo</h2>
+    <div><img width="40%" class="img-fluid p-5" src="/images/book.png" alt="" srcset=""></div>
+    <div style="width:64%; margin-left: 18%;">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+              </svg> Boa performace para estudar</li>
+            <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+              </svg> Contém SSD</li>
+            <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+            </svg> Placa de vídeo dedicada</li>
+            <li class="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+            </svg> Refrigeração líquida</li>
+          </ul></div> 
+          <p id="ident"><%= id %></p>
+          <button type="button" value="estudo" id="botaoAlerta2" onclick="estudo(this.value)"  class="btn btn-dark px-5 ms-5 me-5 mb-5 mt-4 p-2">Salvar configuração</button>
+    </div>
+     <div class="row">
+        <div class="col-12 text-center"><a href="/compatibilidade"><button type="button" class="btn btn-dark ms-4 mt-5 mb-5 px-5 p-3">Monte sua propria configuração</button></a></div>
+     </div>
+    </div>
+  </div>
+    <%- include('templates/footer'); -%>
+    </body>
+    <script src="/javascripts/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

@@ -1,0 +1,315 @@
+<%- include('templates/header'); -%>
+
+    <body style="background-color: #f8f8f8 ;">
+        <div id="mensagem"></div>
+        <div class="bg-p">
+            <div class="container-fluid pb-5 p">
+                <div class="row pt-5">
+                    <div class="col-12 col-md-4 p-5"><img src="/images/pc.png" alt="" class="img-fluid" srcset=""></div>
+                    <div class="col-12 col-md-8 p-5 text-center">
+                        <p class="text-white fs-3" style="font-weight: bold;">Ainda não sabe qual a função de cada peça
+                            de um computador?</p>
+                        <p class="text-white fs-3 pt-5 pb-5" style="font-weight: 200;">Temos uma página ao qual aborda
+                            com detalhes cada peça do seu computador</p>
+                        <a href="/componentes"><button type="button" class="btn btn-light p-3 px-5">Vá para
+                                lá</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pb-5" style="background-color: #f8f8f8;">
+            <!--Compatibilidade erros-->
+            <div id="erros">
+                <div id="erroCpuPlaca" class="display-none">
+                    <div class="alert alert-danger text-center" role="alert">
+                        <p class="fs-5">Soquete do processador incopativel com o soquete da placa-mãe</p>
+                    </div>
+                </div>
+                <div id="erroGabinetePlaca" class="display-none">
+                    <div class="alert alert-danger text-center" role="alert">
+                        <p class="fs-5">Tamanho da placa mãe incompativel com o tamanho do gabinete</p>
+                    </div>
+                </div>
+                <div id="erroGabineteFonte" class="display-none">
+                    <div class="alert alert-danger text-center" role="alert">
+                        <p class="fs-5">Tamanho da fonte incompativel com o tamanho do gabinete</p>
+                    </div>
+                </div>
+                <div id="erroVideo" class="display-none">
+                    <div class="alert alert-danger text-center" role="alert">
+                        <p class="fs-5">Seu processador não tem um gráfico integrado, então precisara adicionar uma
+                            placa de vídeo</p>
+                    </div>
+                </div>
+                <div id="erroCamposObrigatorios" class="display-none">
+                    <div class="alert alert-danger text-center" role="alert">
+                        <p class="fs-5">Todos os campos obrigatórios devem ter uma peça selecionada</p>
+                    </div>
+                </div>
+                <div id="erroArmazenamento" class="display-none">
+                    <div class="alert alert-danger text-center" role="alert">
+                        <p class="fs-5">Selecione no mínimo um dispositivo de armazenamento</p>
+                    </div>
+                </div>
+                <div id="erroEnergia" class="display-none">
+                    <div class="alert alert-danger text-center" role="alert">
+                        <p class="fs-5">O computador que você montou consome mais energia em a fonte selecionada
+                            proporciona, selecione uma mais potente</p>
+                    </div>
+                </div>
+            </div>
+            <!--/Compatibilidade erros-->
+
+            <!--/Form-->
+            <div class="container-fluid mt-5" id="aqui">
+                <h1 class="Display-5 text-center pt-3"><b>Peças obrigatórias</b></h1>
+                <div class="row text-center pb-5 pt-5">
+                    <div class="col-12 col-md-3 m-3 mx-auto text-center rounded-2 pb-5">
+                        <h1><b>Processador</b></h1>
+                        <p class="fs-5 pt-5">O processador é responsável por realizar todas as tarefas atribuidas ao computador, ele é basicamente o cérebro do nosso computador.</p>
+                        <div class="position">
+                            <a href="/perfil" target="_blank">
+                                <button type="button" onclick="cpu()" class="btn btn-light p-2 m-5 mt-2 saiba">Saiba mais</button>
+                            </a>
+                            <select name="" class="btn-dark rounded-2 p-3 selects" id="CpuID"
+                                onmousedown="if(this.options.length>8){this.size=8;}" onchange='this.size=0;'
+                                onblur="this.size=0;">
+                                <option value="">Processador</option>
+                                <% for (var i=0; i < Object.keys(cpu).length; i++) { %>
+                                    <% let json=JSON.stringify(cpu[i], ['nome']) %>
+                                        <% let nome=JSON.parse(json) %>
+                                            <% let jsonid=JSON.stringify(cpu[i], ['id']) %>
+                                                <% let id=JSON.parse(jsonid) %>
+                                                    <option value="<%= id.id %>">
+                                                        <%= nome.nome %>
+                                                    </option>
+                                                    <% } %>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 m-3 mx-auto text-center rounded">
+                        <h1><b>Placa mãe</b></h1>
+                        <p class="fs-5 pt-5">As placas-mãe são os componentes responsáveis por abrigar e conectar todas
+                            as outras peças do seu computador.</p>
+                        <div class="position">
+                            <a href="/perfil" target="_blank"><button type="button" onclick="placamae()"
+                                    class="btn btn-light p-2 m-5 mt-2 saiba">Saiba mais</button>
+                            </a>
+                            <select name="" class="btn-dark rounded-2 p-3 selects selectpicker" id="PlacaMaeID"
+                                onmousedown="if(this.options.length>8){this.size=8;}" onchange='this.size=0;'
+                                onblur="this.size=0;">
+                                <option value="">Placa mãe</option>
+                                <% for (var i=0; i < Object.keys(PlacaMae).length; i++) { %>
+                                    <% let json=JSON.stringify(PlacaMae[i], ['nome']) %>
+                                        <% let nome=JSON.parse(json) %>
+                                            <% let jsonid=JSON.stringify(PlacaMae[i], ['id']) %>
+                                                <% let id=JSON.parse(jsonid) %>
+                                                    <option value="<%= id.id %>">
+                                                        <%= nome.nome %>
+                                                    </option>
+                                                    <% } %>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 m-3 mx-auto text-center rounded">
+                        <h1><b>Memória ram</b></h1>
+                        <p class="fs-5 pt-5">A sigla RAM vem do inglês “random access memory”, que pode ser traduzindo
+                            para “memória de acesso aleatório”.</p>
+                        <div class="position">
+                            <a href="/perfil" target="_blank"><button type="button" onclick="ram()"
+                                    class="btn btn-light p-2 m-5 mt-2 saiba">Saiba mais</button>
+                            </a>
+                            <select name="" class="btn-dark rounded-2 p-3 selects" id="MemoriaRamID"
+                                onmousedown="if(this.options.length>8){this.size=8;}" onchange='this.size=0;'
+                                onblur="this.size=0;">
+                                <option value="">Memória ram</option>
+                                <% for (var i=0; i < Object.keys(MemoriaRam).length; i++) { %>
+                                    <% let json=JSON.stringify(MemoriaRam[i], ['nome']) %>
+                                        <% let nome=JSON.parse(json) %>
+                                            <% let jsonid=JSON.stringify(MemoriaRam[i], ['id']) %>
+                                                <% let id=JSON.parse(jsonid) %>
+                                                    <option value="<%= id.id %>">
+                                                        <%= nome.nome %>
+                                                    </option>
+                                                    <% } %>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row pb-5 pt-5">
+                    <div class="col-12 col-md-3 m-3 mx-auto text-center rounded-2 pb-5">
+                        <h1><b>Fonte</b></h1>
+                        <p class="fs-5 pt-5">A fonte de alimentação, conhecida como PSU (do inglês Power Supply Unit ou
+                            Unidade de Alimentação de Energia).</p>
+                        <div class="position">
+                            <a href="/perfil" target="_blank"><button type="button" onclick="fonte()"
+                                    class="btn btn-light px-5 p-2 m-5 mt-2 saiba">Saiba mais</button>
+                            </a>
+                            <select name="" class="btn-dark rounded-2 p-3 selects" id="FonteAlimentacaoID"
+                                onmousedown="if(this.options.length>8){this.size=8;}" onchange='this.size=0;'
+                                onblur="this.size=0;">
+                                <option value="">Fonte</option>
+                                <% for (var i=0; i < Object.keys(FonteAlimentacao).length; i++) { %>
+                                    <% let json=JSON.stringify(FonteAlimentacao[i], ['nome']) %>
+                                        <% let nome=JSON.parse(json) %>
+                                            <% let jsonid=JSON.stringify(FonteAlimentacao[i], ['id']) %>
+                                                <% let id=JSON.parse(jsonid) %>
+                                                    <option value="<%= id.id %>">
+                                                        <%= nome.nome %>
+                                                    </option>
+                                                    <% } %>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 m-3 mx-auto text-center rounded-2 pb-5">
+                        <h1><b>Gabinete</b></h1>
+                        <p class="fs-5 pt-5">O gabinete é o componente de hardware usado para alocar a maioria das peças
+                            de um computador.</p>
+                        <div class="position">
+                            <a href="/perfil" target="_blank">
+                                <button type="button" onclick="gabinete()" class="btn btn-light px-5 p-2 m-5 mt-2 saiba">Saiba mais</button>
+                            </a>
+                            <select name="" class="btn-dark rounded-2 p-3 selects" id="GabineteID"
+                                onmousedown="if(this.options.length>8){this.size=8;}" onchange='this.size=0;'
+                                onblur="this.size=0;">
+                                <option value="">Gabinete</option>
+                                <% for (var i=0; i < Object.keys(Gabinete).length; i++) { %>
+                                    <% let json=JSON.stringify(Gabinete[i], ['nome']) %>
+                                        <% let nome=JSON.parse(json) %>
+                                            <% let jsonid=JSON.stringify(Gabinete[i], ['id']) %>
+                                                <% let id=JSON.parse(jsonid) %>
+                                                    <option value="<%= id.id %>">
+                                                        <%= nome.nome %>
+                                                    </option>
+                                                    <% } %>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <hr class="linha-compatibilidade mt-5 mb-5">
+                <div class="container-fluid">
+                    <h1 class="Display-5 text-center"><b>Selecione um armazenamento</b></h1>
+                    <div class="row text-center pb-5 pt-5">
+                        <div class="col-12 col-md-3 m-3 mx-auto text-center rounded-2 pb-5">
+                            <h1><b>Disco Rígido</b></h1>
+                            <p class="fs-5 pt-5">Um disco rígido é o componente de hardware que armazena todo o seu
+                                conteúdo digital. Seus documentos, fotos, músicas, vídeos e programas.</p>
+                            <div class="position">
+                                <a href="/perfil" target="_blank">
+                                    <button type="button" onclick="hd()"
+                                        class="btn btn-light px-5 p-2 m-5 mt-2 saiba">Saiba mais</button>
+                                </a>
+                                <select name="" class="btn-dark rounded-2 p-3 selects" id="DiscoRigidoID"
+                                    onmousedown="if(this.options.length>8){this.size=8;}" onchange='this.size=0;'
+                                    onblur="this.size=0;">
+                                    <option value="">Disco Rígido</option>
+                                    <% for (var i=0; i < Object.keys(DiscoRigido).length; i++) { %>
+                                        <% let json=JSON.stringify(DiscoRigido[i], ['nome']) %>
+                                            <% let nome=JSON.parse(json) %>
+                                                <% let jsonid=JSON.stringify(DiscoRigido[i], ['id']) %>
+                                                    <% let id=JSON.parse(jsonid) %>
+                                                        <option value="<%= id.id %>">
+                                                            <%= nome.nome %>
+                                                        </option>
+                                                        <% } %>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-3 m-3 mx-auto text-center rounded">
+                            <h1><b>SSD</b></h1>
+                            <p class="fs-5 pt-5">O SSD (solid-state drive) é uma nova tecnologia de armazenamento
+                                considerada a evolução do disco rígido (HD).</p>
+                            <div class="position">
+                                <a href="/perfil" target="_blank"><button type="button" onclick="ssd()"
+                                        class="btn btn-light px-5 p-2 m-5 mt-2 saiba">Saiba mais</button>
+                                </a>
+                                <select name="" class="btn-dark rounded-2 p-3 selects" id="DiscoSSDID"
+                                    onmousedown="if(this.options.length>8){this.size=8;}" onchange='this.size=0;'
+                                    onblur="this.size=0;">
+                                    <option value="">SSD</option>
+                                    <% for (var i=0; i < Object.keys(DiscoSSD).length; i++) { %>
+                                        <% let json=JSON.stringify(DiscoSSD[i], ['nome']) %>
+                                            <% let nome=JSON.parse(json) %>
+                                                <% let jsonid=JSON.stringify(DiscoSSD[i], ['id']) %>
+                                                    <% let id=JSON.parse(jsonid) %>
+                                                        <option value="<%= id.id %>">
+                                                            <%= nome.nome %>
+                                                        </option>
+                                                        <% } %>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="linha-compatibilidade mt-5 mb-5">
+                    <div class="container-fluid">
+                        <h1 class="Display-5 text-center"><b>Turbine seu PC</b></h1>
+                        <div class="row text-center pb-5 pt-5">
+                            <div class="col-12 col-md-3 m-3 mx-auto text-center rounded-2 pb-5">
+                                <h1><b>Placa de Vídeo</b></h1>
+                                <p class="fs-5 pt-5">A placa gráfica é a peça do seu computador responsável por gerar as
+                                    imagens
+                                    que você vê na tela.</p>
+                                    <div class="position">
+                                <a href="/perfil" target="_blank"><button type="button" onclick="video()"
+                                        class="btn btn-light px-5 p-2 m-5 mt-2 saiba">Saiba mais</button>
+                                </a>
+                                <select name="" class="btn-dark rounded-2 p-3 selects" id="PlacaVideoID"
+                                    onmousedown="if(this.options.length>8){this.size=8;}" onchange='this.size=0;'
+                                    onblur="this.size=0;">
+                                    <option value="">Placa de vídeo</option>
+                                    <% for (var i=0; i < Object.keys(PlacaVideo).length; i++) { %>
+                                        <% let json=JSON.stringify(PlacaVideo[i], ['nome']) %>
+                                            <% let nome=JSON.parse(json) %>
+                                                <% let jsonid=JSON.stringify(PlacaVideo[i], ['id']) %>
+                                                    <% let id=JSON.parse(jsonid) %>
+                                                        <option value="<%= id.id %>">
+                                                            <%= nome.nome %>
+                                                        </option>
+                                                        <% } %>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-3 m-3 mx-auto text-center rounded">
+                                <h1><b>Cooler</b></h1>
+                                <p class="fs-5 pt-5">Os coolers absorvem o calor do processador e o redistribuem esse
+                                    calor
+                                    para
+                                    longe do hardware através dos seus dissipadores.</p>
+                                <div class="position">
+                                    <a href="/perfil" target="_blank"><button type="button" onclick="cooler()"
+                                            class="btn btn-light px-5 p-2 m-5 mt-2 saiba">Saiba mais</button></a>
+                                    <select name="" class="btn-dark rounded-2 p-3 selects" id="CoolerID"
+                                        onmousedown="if(this.options.length>8){this.size=8;}" onchange='this.size=0;'
+                                        onblur="this.size=0;">
+                                        <option value="">Cooler</option>
+                                        <% for (var i=0; i < Object.keys(Cooler).length; i++) { %>
+                                            <% let json=JSON.stringify(Cooler[i], ['nome']) %>
+                                                <% let nome=JSON.parse(json) %>
+                                                    <% let jsonid=JSON.stringify(Cooler[i], ['id']) %>
+                                                        <% let id=JSON.parse(jsonid) %>
+                                                            <option value="<%= id.id %>">
+                                                                <%= nome.nome %>
+                                                            </option>
+                                                            <% } %>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12 text-center pb-5">
+                                <button type="button" class="btn btn-dark px-5 p-3 m-5" onclick="enviarPecas()">Enviar
+                                    Configuração</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                <%- include('templates/footer'); -%>
+                    <script src="/javascripts/componentesJS.js"></script>
+                    <script src="/javascripts/script.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                        crossorigin="anonymous"></script>

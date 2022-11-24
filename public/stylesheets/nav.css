@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,500;0,600;0,700;1,400&display=swap');
+body{
+    font-family: 'Nunito', sans-serif;
+}
+#txtnav{color: #fff;margin-left: 4vw;font-weight: 200;font-size: 1.25vw;}
+#header{background-color: #000;}
+#logo{width: 12vw;}
+.nav-link b {
+    color: #fff;
+    -webkit-transition: color 0.5s;
+    transition: color 0.5s;
+}
+.nav-link b:hover {
+    color: #8f8f8f;
+}
+@media (max-width: 450px)
+{
+    #txtnav{
+        font-size: 4vw;
+    }
+    
+}
+@media (max-width: 1000px)
+{
+    #sairBTN{
+        display: none;
+    }
+    
+}
+

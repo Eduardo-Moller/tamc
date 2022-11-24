@@ -1,0 +1,59 @@
+<%- include('templates/header'); -%>
+<body style="background-color: #f8f8f8 ;">
+  <section class="pb-5">
+    <div class="container text-center">
+          <h1 class="display-5 pt-5">Componentes</h1>
+
+      <div class="row">
+        <div class="col-sm-4 text-center mt-5">
+          <h1 id="h1componentes" class="display-5">Cpu</h1>
+          <a href="/perfil" onclick="cpu()"><img id="largura2" src="/images/cpu.png" class="rounded" alt="..."></a>
+        </div>
+        <div class="col-sm-4 text-center mt-5">
+          <h1 id="h1componentes" class="display-5">Placa-Mãe</h1>
+          <a href="/perfil" onclick="placamae()"><img id="largura2" src="/images/PlacaMae.png" class="rounded" alt="..."></a>
+        </div>
+        <div class="col-sm-4 text-center mt-5">
+          <h1 id="h1componentes" class="display-5">Memória ram</h1>
+          <a href="/perfil" onclick="ram()"><img id="largura2" src="/images/MemoriaRam.png" class="rounded" alt="..."></a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4 text-center mt-5">
+          <h1 id="h1componentes" class="display-5">Placa de Vídeo</h1>
+          <a href="/perfil" onclick="video()"><img id="largura2" src="/images/PlacaDeVideo.png" class="rounded" alt="..."></a>
+        </div>
+        <div class="col-sm-4 text-center mt-5">
+          <h1 id="h1componentes" class="display-5">Disco Rígido</h1>
+          <a href="/perfil" onclick="hd()"><img id="largura2" src="/images/hd.png" class="rounded" alt="..."></a>
+        </div>
+        <div class="col-sm-4 text-center mt-5">
+          <h1 id="h1componentes" class="display-5">SSD</h1>
+          <a href="/perfil" onclick="ssd()"><img id="largura2" src="/images/ssd.png" class="rounded" alt="..."></a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4 text-center mt-5">
+          <h1 id="h1componentes" class="display-5">Cooler</h1>
+          <a href="/perfil" onclick="cooler()"><img id="largura2" src="/images/cooler.png" class="rounded" alt="..."></a>
+        </div>
+        <div class="col-sm-4 text-center mt-5">
+          <h1 id="h1componentes" class="display-5">Fonte</h1>
+          <a href="/perfil" onclick="fonte()"><img id="largura2" src="/images/fonte.png" class="rounded" alt="..."></a>
+        </div>
+        <div class="col-sm-4 text-center mt-5">
+          <h1 id="h1componentes" class="display-5">Gabinete</h1>
+          <a href="/perfil" onclick="gabinete()"><img id="largura2" src="/images/gabinete.png" class="rounded" alt="..."></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%- include('templates/footer'); -%>
+    </body>
+    <script src="/javascripts/componentesJS.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>

@@ -1,0 +1,17 @@
+#largura2{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 75%;
+    height: 100%;
+}
+#margin{
+    margin-top: 7%;
+}
+#h1componentes{
+    font-size: 2vw;
+}
+@media (max-width: 450px)
+{
+    #h1componentes{
+        font-size: 8vw;
+    }
+}

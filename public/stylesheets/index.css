@@ -1,0 +1,79 @@
+.myBackground {
+    background-image: url(https://wallpapercave.com/wp/wp6899583.jpg);
+    color: white;
+    height: 90vh;
+    width: 100%;
+}
+
+#gabinete{
+    width: 30%;
+}
+#ident{
+    display: none;
+}
+::-webkit-scrollbar {
+    width: 20px;
+}
+::-webkit-scrollbar-track {
+    background-color: black;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+.alerta-cadastro{
+    padding: 19px;
+    position: fixed;
+    top: 20px;
+    right: 115px;
+    background-color: #e5e4e2;
+    border-radius: 10px;
+    color: #000;
+    font-weight: bold;
+    animation: slide-in-right 0.2s cubic-bezier(0.25, 0.20, 0.25, 0.60) both;
+}
+
+@keyframes slide-in-right{
+    0%{
+        transform: translateX(1000px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@media (max-width: 480px) {
+    #gabinete {
+        width: 58%;
+    }
+
+  }
+.tope{
+    width: 50%; margin-left: 10%;
+}
+@media (max-width: 450px)
+{
+    #conteudo1 img{
+        display: none;
+    }
+    .tope{
+        width: 80%;
+    }
+    .tope h1{
+        font-size: 4vw;
+    }
+    #conteudo1 button{
+        width: 60%;
+        margin-left: 20%;
+    }
+    #conteudo2 img{
+        display: none;
+    }
+    #conteudo2 button{
+        width: 60%;
+        margin-left: 20%;
+    }
+}

@@ -1,0 +1,64 @@
+.linha-compatibilidade{
+  margin-left: 5vw;
+  width: 90vw;
+}
+.pc-img{
+  width: 20vw;
+}
+.p{
+  padding-top: 10vh;
+}
+.display-none{
+  display: none;
+}
+.bg-p{
+  background-color: #000; 
+  height: 105vh;
+}
+.selects{
+  /*width: 15vw;
+  position: absolute;
+  z-index: 1;*/
+  position: absolute;
+  width: 15vw;
+  grid-column: 1;
+  grid-row: 2;
+  right: 0;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+.position{
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(1, 20vw);
+  grid-template-rows: repeat(2, 10vh);
+}
+.saiba{
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ECECEC;
+}
+
+@media (max-width: 750px)
+{
+  .selects{
+    width: 80vw;
+  }
+  .bg-p{
+    background-color: #000; 
+    height: 120vh;
+  }
+  .p{
+    padding-top: 0vh;
+  }
+  .linha-compatibilidade{
+    width: 95vw;
+    margin-left: 2.5vw;
+  }
+}
+
+
