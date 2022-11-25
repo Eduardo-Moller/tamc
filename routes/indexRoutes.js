@@ -4,12 +4,15 @@ const pecasController = require("../controllers/pecasController");
 var router = express.Router();
 
 router.get('/', usuarioController.loginVerify, async (req, res, next) => {
-  data = await usuarioController.getUser();
+  var data = {
+    id:req.session.login.id,
+    nome:req.session.login.nome
+}
   res.render('index', data);
 });
 
 router.get('/compatibilidade', usuarioController.loginVerify, async (req, res, next) => {
-  pecas = await pecasController.pecas();
+  pecas = await pecasController.pecas(req.session.login.id);
   res.render('compatibilidade', pecas);
   
 });
@@ -20,10 +23,6 @@ router.get('/comp', async (req, res, next) => {
 
 router.get('/componentes', usuarioController.loginVerify, function (req, res, next) {
   res.render('componentes');
-}); 
-
-router.get('/teste', function (req, res, next) {
-  res.render('teste');
 }); 
 
 router.get('/perfil', usuarioController.loginVerify, function (req, res, next) {

@@ -1,6 +1,5 @@
 const express = require('express');
 const usuarioController = require("../controllers/usuarioController");
-const sessionStorage = require('node-sessionstorage')
 const router = express.Router();
 
 router.post("/login", async (req, res, next) => {
@@ -25,7 +24,8 @@ router.post("/registro", async (req, res, next) => {
   }
   var UserArray = [nome, email, senha];
   user = await usuarioController.registro(UserArray);
-  if(user){
+  if(typeof(user)=='object'){
+    req.session.login = user;
     res.redirect('/')
   }
 });

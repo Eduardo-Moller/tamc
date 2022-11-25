@@ -13,7 +13,9 @@
     width:640px;
     height:360px;
 }
-
+.ida{
+  display: none;  
+}
 
 #pecas{
     margin-top: 10vh;

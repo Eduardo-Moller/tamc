@@ -2,11 +2,12 @@ const pecasModel = require("../models/pecasModel");
 const sessionStorage = require('node-sessionstorage');
 const { jsPDF } = require("jspdf");
 
-exports.pecas = async () => {
-    return await pecasModel.listaPecas();
+exports.pecas = async (id) => {
+    return await pecasModel.listaPecas(id);
 };
 
-exports.compatibilidade = async (data) => {
+exports.compatibilidade = async (data, id) => {
+    console.log(data);
     //Pega as informaçoes das peças no model
     objPecas = await pecasModel.verifica(data);
 
@@ -103,7 +104,6 @@ exports.compatibilidade = async (data) => {
     }
 
     if (verifica[0] == true && verifica[1] == true && verifica[2] == true && verifica[3] == true && verifica[4] == true) {
-        id = sessionStorage.getItem('id');
         const PecasSalvas = {id: id,cpu: cpu.nome,cpuP: cpu.preco,placamae: placaMae.nome,placamaeP: placaMae.preco,ram: ram.nome,ramP: ram.preco,placavideo: placaVideo ,placavideoP: placaVideoP,discorigido: hd,discorigidoP: hdP,ssd: ssd,ssdP: ssdP,cooler: cooler,coolerP: coolerP,fonte: fonte.nome,fonteP: fonte.preco,gabinete: gabinete.nome,gabineteP: gabinete.preco}
         await pecasModel.salva(PecasSalvas);
         return verifica;  
@@ -113,13 +113,7 @@ exports.compatibilidade = async (data) => {
 };
 
 exports.listaConfigs = async (id) => {
-    //id = sessionStorage.getItem('id');
-    //nome = sessionStorage.getItem('nome');
     lista = await pecasModel.listaConfigs(id);
-    //var data = {
-    //    nome:nome,
-    //    lista:lista
-    //}
     return lista;
 };
 

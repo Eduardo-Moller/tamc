@@ -1,6 +1,6 @@
 const mysql = require('./mysql')
 
-async function listaPecas() {
+async function listaPecas(id) {
     sql = `SELECT id,nome FROM cpu`;
     const dataCpu = await mysql.query(sql);
     sql = `SELECT id,nome FROM PlacaMae`;
@@ -28,7 +28,8 @@ async function listaPecas() {
         DiscoSSD:dataDiscoSSD,
         Cooler:dataCooler,
         FonteAlimentacao:dataFonteAlimentacao,
-        Gabinete:dataGabinete
+        Gabinete:dataGabinete,
+        id:id
     }
     return data;
 };

@@ -1,5 +1,4 @@
 const mysql = require('./mysql')
-const sessionStorage = require('node-sessionstorage')
 const bcrypt = require("bcrypt");
 
 async function login(data) {
@@ -23,10 +22,10 @@ async function registro(data) {
     await mysql.query(sql);
     sql = `SELECT * FROM usuarios WHERE email = '${data[1]}'`;
     user = await mysql.query(sql);
-    sessionStorage.setItem('nome', user[0].nome);
-    sessionStorage.setItem('id', user[0].id);
+    var nome = user[0].nome;
+    var id = user[0].id;
     registrarBanco = true;
-    return registrarBanco;
+    return {id, nome};
 };
 
 module.exports = { login, registro };

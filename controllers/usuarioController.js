@@ -1,6 +1,5 @@
 const usuarioModel = require("../models/usuarioModel");
 const bcrypt = require("bcrypt");
-const sessionStorage = require('node-sessionstorage');
 
 exports.get = async () => {
     return await usuarioModel.get();
@@ -8,16 +7,6 @@ exports.get = async () => {
 
 exports.login = async (data) => {
     return usuarioModel.login(data);
-};
-
-exports.getUser = async () => {
-    id = sessionStorage.getItem('id');
-    nome = sessionStorage.getItem('nome');
-    data = {
-        id:id,
-        nome:nome
-    }
-    return data;
 };
 
 exports.registro = async (data) => {
