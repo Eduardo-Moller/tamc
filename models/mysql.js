@@ -10,7 +10,6 @@ var pool = undefined;
 async function connect() {
     const mysql = require('mysql2/promise');
     if(pool){
-        console.log("reusando pool");
         return pool;
     }
     pool = await mysql.createPool({

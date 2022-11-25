@@ -11,6 +11,7 @@ router.get('/', usuarioController.loginVerify, async (req, res, next) => {
 router.get('/compatibilidade', usuarioController.loginVerify, async (req, res, next) => {
   pecas = await pecasController.pecas();
   res.render('compatibilidade', pecas);
+  
 });
 
 router.get('/comp', async (req, res, next) => {
@@ -34,12 +35,16 @@ router.get('/tutorial', usuarioController.loginVerify, function (req, res, next)
 });
 
 router.get('/usuario', usuarioController.loginVerify, async (req, res, next) => {
-  configsList = await pecasController.listaConfigs();
+  configsList = await pecasController.listaConfigs(req.session.login.id);
+  var data = {
+    nome:req.session.login.nome,
+    lista:configsList
+  }
   if(req.query.id){
     await pecasController.excluir(req.query.id);
     res.redirect('/usuario')
   }
-  res.render('usuario', configsList);
+  res.render('usuario', data);
 });
 
 router.get('/login', function (req, res, next) {

@@ -5,17 +5,17 @@ const bcrypt = require("bcrypt");
 async function login(data) {
     sql = `SELECT * FROM usuarios WHERE email = '${data[0]}'`;
     var usuarios = await mysql.query(sql);
-    var checkPassword;
     if (usuarios[0] != null) {
-            checkPassword = await bcrypt.compare(data[1], usuarios[0].senha)
+        if (await bcrypt.compare(data[1], usuarios[0].senha)) {
             const id = usuarios[0].id;
             const nome = usuarios[0].nome;
-            sessionStorage.setItem('nome', nome);
-            sessionStorage.setItem('id', id);
-    }else{
-        checkPassword = false;
+            return { id, nome };
+        } else {
+            return false;
+        }
+    } else {
+        return false;
     }
-    return checkPassword;
 };
 
 async function registro(data) {

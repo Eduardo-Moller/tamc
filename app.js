@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
 const jsPDF = require("jspdf");
 const path = require('path');
-//const session = require('express-session');
+const session = require('express-session');
 const logger = require('morgan');
 
 const indexRouter = require('./routes/indexRoutes');
@@ -25,6 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(session({secret:"ABC", resave: true, saveUninitialized: true}));
 app.use(bodyParser.json());
 app.use('/', indexRouter);
 app.use('/user', loginRouter);

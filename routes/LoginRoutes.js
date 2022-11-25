@@ -8,7 +8,8 @@ router.post("/login", async (req, res, next) => {
   senha = req.body.senha;
   var UserArray = [email, senha];
   user = await usuarioController.login(UserArray);
-  if (user) {
+  if (typeof(user)=='object') {
+    req.session.login = user;
     res.redirect('/')
   } else {
     res.redirect('/login')

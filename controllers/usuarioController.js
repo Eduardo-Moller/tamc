@@ -28,7 +28,7 @@ exports.registro = async (data) => {
 };
 
 exports.loginVerify = (req, res, next) => {
-    if (sessionStorage.getItem('id') === undefined) {
+    if (!req.session.login) {
         res.redirect('/login');
     } else {
         next();
@@ -36,11 +36,10 @@ exports.loginVerify = (req, res, next) => {
 };
 
 exports.logOut = (req, res, next) => {
-    if (sessionStorage.getItem('id') === undefined) {
+    if (req.session.login === undefined) {
         next();
     } else {
-        sessionStorage.setItem('id', undefined);
-        sessionStorage.setItem('nome', undefined);
+        req.session.login = undefined;
         res.redirect('/login');
     }
 };

@@ -112,15 +112,15 @@ exports.compatibilidade = async (data) => {
     }
 };
 
-exports.listaConfigs = async () => {
-    id = sessionStorage.getItem('id');
-    nome = sessionStorage.getItem('nome');
+exports.listaConfigs = async (id) => {
+    //id = sessionStorage.getItem('id');
+    //nome = sessionStorage.getItem('nome');
     lista = await pecasModel.listaConfigs(id);
-    var data = {
-        nome:nome,
-        lista:lista
-    }
-    return data;
+    //var data = {
+    //    nome:nome,
+    //    lista:lista
+    //}
+    return lista;
 };
 
 exports.excluir = async (data) => {
