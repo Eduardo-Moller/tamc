@@ -6,6 +6,8 @@ Projeto desenvolvido em node js
 
 ### 📋 Como rodar a aplicação
 
+Execute o banco de dados e siga os passos a seguir
+
 Dentro da pasta raiz do projeto execute o comando seguinte
 
 ```
